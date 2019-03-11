@@ -6,6 +6,7 @@ const random = require("lodash.random");
 const db = require("./models");
 const apiPost = require("./app/api/post");
 const apiAuthor = require("./app/api/author");
+const apiPostAuthor = require("./app/api/postAuthor");
 
 const app = express();
 app.use(bodyParser.json());
@@ -13,6 +14,7 @@ app.use(express.static("app/public"));
 
 apiPost(app, db);
 apiAuthor(app, db);
+apiPosAuthor(app, db);
 
 db.sequelize.sync().then(() => {
   // populate author table with dummy data
